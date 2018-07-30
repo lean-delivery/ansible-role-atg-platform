@@ -1,0 +1,23 @@
+exclude_paths:
+ - ./.travis.yml
+ - ./molecule/cloud-aws/create.yml
+ - ./molecule/cloud-aws/destroy.yml
+ - ./molecule/cloud-aws/playbook.yml
+ - ./molecule/cloud-epc/create.yml
+ - ./molecule/cloud-epc/destroy.yml
+ - ./molecule/cloud-epc/playbook.yml
+ - ./molecule/cloud-aws/prepare.yml
+ - ./molecule/docker-11.2/create.yml
+ - ./molecule/docker-11.2/destroy.yml
+ - ./molecule/docker-11.2/playbook.yml
+ - ./molecule/docker-10.1.1/create.yml
+ - ./molecule/docker-10.1.1/playbook.yml
+ - ./molecule/docker-10.2/create.yml
+ - ./molecule/docker-10.2/playbook.yml
+ - ./molecule/docker-11.1/create.yml
+ - ./molecule/docker-11.1/playbook.yml
+ - ./molecule/cloud-epc/prepare.yml
+rulesdir:
+  - ~/ansible-lint-rules/rules/
+use_default_rules: true
+verbosity: 1

@@ -1,0 +1,17 @@
+---
+- name: "Read content of {{ config_properties_txt }}"
+  slurp:
+    src: "{{ config_properties_txt }}"
+  register: remote_conf
+
+- name: "Set config_properties"
+  set_fact:
+    config_properties: "{{ remote_conf['content'] | b64decode }}"
+
+# try to find line "install=Core Platform (DAS/DAF/DPS/DSS/ContentMgmt)
+# or install=ATG Platform (includes DAS/DAF/DPS/DSS) for ATG<11 versions"
+- name: "Check installed ATG version"
+  set_fact:
+    atg_installed_version: "{{ item.split('=').2 }}"
+  with_items: "{{ config_properties.splitlines() }}"
+  when: item.split('=').0 == "install" and "Platform" in item.split('=').1

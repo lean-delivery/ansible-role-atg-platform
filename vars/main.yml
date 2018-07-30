@@ -1,0 +1,10 @@
+---
+# vars file for atg-platform
+
+# ATG configXMLproperties.txt properties file with list of all installed ATG components
+config_properties_txt: "{{ dynamo_root }}/home/installconfig/configXMLproperties.txt"
+
+# source files with environment variables
+profile:
+  java: "/etc/profile.d/java.sh"
+  jboss: "/etc/profile.d/jboss.sh"

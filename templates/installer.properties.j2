@@ -1,0 +1,42 @@
+#Choose Install Folder
+#---------------------
+USER_INSTALL_DIR={{ dynamo_root }}
+
+ATG_LISTEN_PORT={{ atg_listen_port }}
+ATG_RMI_PORT={{ atg_rmi_port }}
+ATG_JDK_HOME={{ java_home }}
+
+{% if atg_version >= 11 %}
+
+#Installed features
+#------------------
+CHOSEN_INSTALL_FEATURE_LIST=RM,Commerce,Portal,CA,MP
+
+
+#Install
+#-------
+-fileOverwrite_{{ dynamo_root }}/.ASE{{atg_version}}_config/config/setup_rule.xml=Yes
+-fileOverwrite_{{ dynamo_root }}/.ASE{{atg_version}}_config/config/j2ee_deploy_setup_rule.xml=Yes
+-fileOverwrite_{{ dynamo_root }}/.ASE{{atg_version}}_config/lib/OCIAPlatformlib.jar=Yes
+-fileOverwrite_{{ dynamo_root }}/.ASE{{atg_version}}_config/lib/vendorlibs.jar=Yes
+-fileOverwrite_{{ dynamo_root }}/.ASE{{atg_version}}_config/bin/getlicense.sh=Yes
+-fileOverwrite_{{ dynamo_root }}/.ASE{{atg_version}}_config/bin/getlicense.bat=Yes
+-fileOverwrite_{{ dynamo_root }}/uninstall/.ASE{{atg_version}}_uninstall/Uninstall Oracle Commerce Platform {{atg_version}}.lax=Yes
+
+{% else %}
+
+ATG_ADMIN_PORT={{ atg_listen_port }}
+
+{% endif %}
+
+{% if app_server == "jboss" %}
+
+#Select Application Server
+#-------------------------
+SELECTED_APP_SERVER=\"JBoss\",\"\",\"\",\"\",\"\"
+
+#JBoss Console
+#-------------
+ATG_JBOSS_HOME={{ jboss_home }}
+
+{% endif %}

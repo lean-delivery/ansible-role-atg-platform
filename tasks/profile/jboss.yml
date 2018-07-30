@@ -1,0 +1,15 @@
+---
+- name: "Read content of {{ profile.jboss }}"
+  slurp:
+    src: "{{ profile.jboss }}"
+  register: jboss_sh
+
+- name: "Set jboss_profile"
+  set_fact:
+    jboss_profile: "{{ jboss_sh['content'] | b64decode }}"
+
+- name: "Get JBOSS_HOME"
+  set_fact:
+    jboss_home: "{{ item.split('=').1 }}"
+  with_items: "{{ jboss_profile.splitlines() }}"
+  when: item.split('=').0 == "export JBOSS_HOME"
