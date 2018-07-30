@@ -1,6 +1,7 @@
 ---
 # Check OS, ansible, molecule, docker version
 before_script:
+  - pip install --upgrade ansible==2.5.5 ansible-lint==3.4.21 docker-py==1.10.6 molecule==2.13.1 pyOpenSSL PyYAML==3.12
   - ansible --version
   - molecule --version
   - docker --version
