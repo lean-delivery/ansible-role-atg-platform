@@ -6,7 +6,7 @@
     - role: lean_delivery.jboss
       transport: "web"
       transport_web: "https://touch.epm-esp.projects.epam.com/static-files/oracle-commerce-suite/app-servers/jboss-eap-6.1.0.zip"
-    - role: atg-platform
+    - role: ansible-role-atg-platform
       atg_version: "10.1.1"
       transport: "web"
       transport_web: "https://touch.epm-esp.projects.epam.com/static-files/oracle-commerce-suite/commerce/ATG10.1.1/ATG10.1.1.zip"
