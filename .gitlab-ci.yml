@@ -29,28 +29,6 @@ Docker atg-platform 11.2:
   tags:
     - molecule2.4
 
-# Tests for EPC driver for ATG 11.2
-# EPC atg-platform 11.2:
-#   variables:
-#     MOLECULE_INCLUDE_ANSIBLE_CFG: "true"
-#     EPC_REGION: EPAM-BY2
-#   stage: Deployment test
-#   script:
-#     - molecule test -s cloud-epc
-#   tags:
-#     - molecule2.4
-
-# Tests for AWS driver for ATG 11.2
-# AWS atg-platform 11.2:
-#  variables:
-#    MOLECULE_INCLUDE_ANSIBLE_CFG: "true"
-#    EPC_REGION: AWS-EUCENTRAL
-#  stage: Deployment test
-#  script:
-#    - molecule test -s cloud-aws
-#  tags:
-#    - molecule2.4
-
 # Tests for Docker driver for ATG 10.1.1
 Docker atg-platform 10.1.1:
   stage: Deployment test
