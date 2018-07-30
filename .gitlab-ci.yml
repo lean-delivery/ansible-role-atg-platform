@@ -18,37 +18,27 @@ Ansible lint:
     - ansible-lint -c .ansible-lint `find . -regex ".*\.\(yml\)"`
   after_script:
     - rm -rf ~/ansible-lint-rules
-  tags:
-    - molecule2.4
 
 # Tests for Docker driver for ATG 11.2
 Docker atg-platform 11.2:
   stage: Deployment test
   script:
     - molecule test -s docker-11.2
-  tags:
-    - molecule2.4
 
 # Tests for Docker driver for ATG 10.1.1
 Docker atg-platform 10.1.1:
   stage: Deployment test
   script:
     - molecule test -s docker-10.1.1
-  tags:
-    - molecule2.4
 
 # Tests for Docker driver for ATG 10.2
 Docker atg-platform 10.2:
   stage: Deployment test
   script:
     - molecule test -s docker-10.2
-  tags:
-    - molecule2.4
 
 # Tests for Docker driver for ATG 11.1
 Docker atg-platform 11.1:
   stage: Deployment test
   script:
     - molecule test -s docker-11.1
-  tags:
-    - molecule2.4
