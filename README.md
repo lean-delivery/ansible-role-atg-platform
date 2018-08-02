@@ -27,7 +27,7 @@ Requirements
 
 For more information regarding support matrix please visit <https://support.oracle.com>
 
-Should be installed preliminarily java and application server:
+Java and application server should be installed preliminarily:
   - lean_delivery.java
   - lean_delivery.jboss
 
@@ -77,7 +77,7 @@ Example Playbook
 
 ### Installing ATG from local:
 ```yaml
-- name: "Install ATG 11.2 from web"
+- name: "Install ATG 11.2 from local"
   hosts: all
 
   roles:

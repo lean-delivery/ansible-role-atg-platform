@@ -8,7 +8,7 @@
   set_fact:
     config_properties: "{{ remote_conf['content'] | b64decode }}"
 
-# try to find line "install=Core Platform (DAS/DAF/DPS/DSS/ContentMgmt)
+# Try to find line like "install=Core Platform (DAS/DAF/DPS/DSS/ContentMgmt)
 # or install=ATG Platform (includes DAS/DAF/DPS/DSS) for ATG<11 versions"
 - name: "Check installed ATG version"
   set_fact:
