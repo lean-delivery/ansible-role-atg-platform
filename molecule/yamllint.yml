@@ -7,3 +7,7 @@ rules:
     level: warning
   # don't bother me with this rule
   truthy: disable
+  comments-indentation: disable
+
+ignore: |
+  molecule
