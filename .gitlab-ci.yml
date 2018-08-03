@@ -1,4 +1,9 @@
 ---
+# Run all tests
+stages:
+  - lint
+  - Deployment test
+
 # Check OS, ansible, molecule, docker version
 before_script:
   - ansible --version
