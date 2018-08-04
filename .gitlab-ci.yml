@@ -12,7 +12,9 @@ before_script:
 
 variables:
   GET_SOURCES_ATTEMPTS: "5"
-  EPC_REGION: EPAM-BY2
+  ANSIBLE_INVENTORY: /home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/epc_vm.py
+  ANSIBLE_INVENTORY_PLUGINS: /home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/epc_vm.py
+  ANSIBLE_LIBRARY: /home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible
 
 # Tests for Docker driver for ATG 11.2
 .Docker atg-platform 11.2:
