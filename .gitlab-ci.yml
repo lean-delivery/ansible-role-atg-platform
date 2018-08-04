@@ -26,7 +26,7 @@ variables:
 EPC[Delegated] atg-platform 11.2:
   stage: Deployment test
   script:
-    - molecule --debug test -s cloud-epc-delegated
+    - molecule test -s cloud-epc-delegated
   tags:
     - molecule2.16
 
@@ -44,7 +44,7 @@ AWS[Delegated] atg-platform 11.2:
     EPC_REGION: AWS-EUCENTRAL
   stage: Deployment test
   script:
-    - molecule --debug test -s cloud-aws-delegated
+    - molecule test -s cloud-aws-delegated
   tags:
     - molecule2.16
 
