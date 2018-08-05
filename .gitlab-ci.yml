@@ -15,7 +15,6 @@ variables:
   ANSIBLE_INVENTORY: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/inventory/epc.py"
   ANSIBLE_LIBRARY: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible"
   ANSIBLE_INVENTORY_PLUGINS: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/inventory/epc.py"
-  CI_DEBUG_TRACE: "true"
 
 # Tests for Docker driver for ATG 11.2
 .Docker atg-platform 11.2:
@@ -31,7 +30,7 @@ EPC[Delegated] atg-platform 11.2:
     EPC_REGION: EPAM-BY2
   stage: Deployment test
   script:
-    - molecule test -s cloud-epc-delegated
+    - molecule --debug test -s cloud-epc-delegated
   tags:
     - molecule2.16
 
@@ -41,7 +40,7 @@ AWS[Delegated] atg-platform 11.2:
     EPC_REGION: AWS-EUCENTRAL
   stage: Deployment test
   script:
-    - molecule test -s cloud-aws-delegated
+    - molecule --debug test -s cloud-aws-delegated
   tags:
     - molecule2.16
 
