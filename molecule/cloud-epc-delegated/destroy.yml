@@ -2,8 +2,8 @@
 - name: Destroy
   hosts: localhost
   connection: local
-  gather_facts: false
-  no_log: false
+  gather_facts: False
+  no_log: True
   tasks:
     # Developer must implement.
     - name: Destroy molecule instance(s)

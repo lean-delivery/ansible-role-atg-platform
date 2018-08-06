@@ -2,8 +2,8 @@
 - name: Create
   hosts: localhost
   connection: local
-  gather_facts: false
-  no_log: false
+  gather_facts: False
+  no_log: True
   vars:
     ssh_port: 22
   tasks:

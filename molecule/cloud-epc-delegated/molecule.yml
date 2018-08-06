@@ -12,7 +12,7 @@ lint:
 platforms:
   - name: test-atg-platform-epc
     image: CentOS6_64-bit
-    shape: mini
+    shape: medium
     region: EPAM-BY2
     wait_timeout: 1800
     groups:
