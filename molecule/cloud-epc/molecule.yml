@@ -10,13 +10,13 @@ lint:
   options:
     config-file: molecule/yamllint.yml
 platforms:
-  - name: test-atg-platform
+  - name: test-atg-platform-epc
     image: CentOS6_64-bit
-    shape: large
-    region: AWS-EUCENTRAL
+    shape: medium
+    region: EPAM-BY2
     wait_timeout: 1800
     groups:
-      - atg_platform_group
+      - atg_platform_epc_group
 provisioner:
   name: ansible
   config_options:
@@ -28,7 +28,7 @@ provisioner:
   lint:
     name: ansible-lint
 scenario:
-  name: cloud-aws-delegated
+  name: cloud-epc
 verifier:
   name: testinfra
   lint:

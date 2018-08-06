@@ -16,31 +16,31 @@ variables:
   ANSIBLE_LIBRARY: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible"
   ANSIBLE_INVENTORY_PLUGINS: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/inventory/epc.py"
 
-# Tests for Docker driver for ATG 11.2
-.Docker atg-platform 11.2:
+# Tests for Docker driver for ATG 11.3
+.Docker atg-platform 11.3:
   stage: Deployment test
   script:
-    - molecule test -s docker-11.2
+    - molecule test -s docker-11.3
   tags:
     - molecule2.16
 
-# Tests for delegated driver for ATG 11.2
-EPC[Delegated] atg-platform 11.2:
+# Tests for EPC driver for ATG 11.3
+EPC atg-platform 11.3:
   variables:
     EPC_REGION: EPAM-BY2
   stage: Deployment test
   script:
-    - molecule test -s cloud-epc-delegated
+    - molecule test -s cloud-epc
   tags:
     - molecule2.16
 
-# Tests for AWS driver for ATG 11.2
-AWS[Delegated] atg-platform 11.2:
+# Tests for AWS driver for ATG 11.3
+AWS] atg-platform 11.3:
   variables:
     EPC_REGION: AWS-EUCENTRAL
   stage: Deployment test
   script:
-    - molecule test -s cloud-aws-delegated
+    - molecule test -s cloud-aws
   tags:
     - molecule2.16
 
@@ -65,5 +65,13 @@ AWS[Delegated] atg-platform 11.2:
   stage: Deployment test
   script:
     - molecule test -s docker-11.1
+  tags:
+    - molecule2.16
+
+# Tests for Docker driver for ATG 11.2
+.Docker atg-platform 11.2:
+  stage: Deployment test
+  script:
+    - molecule test -s docker-11.2
   tags:
     - molecule2.16

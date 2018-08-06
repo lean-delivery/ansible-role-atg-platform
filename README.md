@@ -5,7 +5,7 @@ atg-platform
 ## Summary
 --------------
 
-This role installs the Oracle ATG Web Commerce platform (the ATG platform) on Linux platforms, which is a highly customizable, configurable framework for building and supporting Web sites, particularly sites used for e-commerce.
+This role installs the Oracle ATG Web Commerce platform (ATG platform) on Linux platforms, which is a highly customizable, configurable framework for building and supporting Web sites, particularly sites used for e-commerce.
 
 
 Requirements
@@ -17,6 +17,7 @@ Requirements
    - 11.0
    - 11.1
    - 11.2
+   - 11.3
    - _lower and higher versions should be retested_
  - **Supported application servers**
    - JBoss
@@ -77,7 +78,7 @@ Example Playbook
 
 ### Installing ATG from local:
 ```yaml
-- name: "Install ATG 11.2 from local"
+- name: "Install ATG 11.3 from local"
   hosts: all
 
   roles:
@@ -92,7 +93,7 @@ Example Playbook
     - role: lean_delivery.atg-platform
       atg_version: "11.2"
       transport: "local"
-      transport_local: "/tmp/V78217-01.zip"
+      transport_local: "/tmp/V861209-01.zip"
 ```
 
 ## License

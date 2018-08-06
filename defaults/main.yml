@@ -1,6 +1,6 @@
 ---
 # version of ATG platform
-atg_version: "11.2"
+atg_version: "11.3"
 # path to install ATG
 dynamo_root: "/opt/atg/ATG{{ atg_version }}"
 
@@ -17,8 +17,8 @@ transport: "local"
 # - "web" Fetching artifact from custom web uri
 # - "local" Local artifact
 
-transport_web: "http://my-storage.example.com/V78217-01.zip"
-transport_local: "/tmp/V78217-01.zip"
+transport_web: "http://my-storage.example.com/V861209-01.zip"
+transport_local: "/tmp/V861209-01.zip"
 
 # path to download ATG
 download_path: "/tmp"
