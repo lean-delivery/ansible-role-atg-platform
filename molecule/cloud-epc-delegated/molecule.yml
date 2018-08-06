@@ -21,7 +21,7 @@ provisioner:
   name: ansible
   config_options:
     ssh_connection:
-      control_path: "%(directory)s/%%h-%%p-%%r"
+      control_path: "/var/ans/%%h"
   env:
     ANSIBLE_LIBRARY:
       /home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible
