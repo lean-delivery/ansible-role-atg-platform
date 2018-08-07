@@ -93,7 +93,7 @@ Example Playbook
       transport: "local"
       transport_local: "/tmp/jboss-eap-6.1.0.zip"
     - role: lean_delivery.atg-platform
-      atg_version: "11.2"
+      atg_version: "11.3"
       transport: "local"
       transport_local: "/tmp/V861209-01.zip"
 ```
