@@ -22,7 +22,7 @@ Docker atg-platform 11.3:
   script:
     - molecule test -s docker-11.3
   tags:
-    - molecule2.16
+    - docker
 
 # Tests for EPC driver for ATG 11.3
 EPC atg-platform 11.3:
@@ -32,7 +32,7 @@ EPC atg-platform 11.3:
   script:
     - molecule test -s cloud-epc
   tags:
-    - molecule2.16
+    - delegated
 
 # Tests for AWS driver for ATG 11.3
 AWS atg-platform 11.3:
@@ -42,7 +42,7 @@ AWS atg-platform 11.3:
   script:
     - molecule test -s cloud-aws
   tags:
-    - molecule2.16
+    - delegated
 
 # Tests for Docker driver for ATG 10.1.1
 Docker atg-platform 10.1.1:
@@ -50,7 +50,7 @@ Docker atg-platform 10.1.1:
   script:
     - molecule test -s docker-10.1.1
   tags:
-    - molecule2.16
+    - docker
 
 # Tests for Docker driver for ATG 10.2
 Docker atg-platform 10.2:
@@ -58,7 +58,7 @@ Docker atg-platform 10.2:
   script:
     - molecule test -s docker-10.2
   tags:
-    - molecule2.16
+    - docker
 
 # Tests for Docker driver for ATG 11.1
 Docker atg-platform 11.1:
@@ -66,7 +66,7 @@ Docker atg-platform 11.1:
   script:
     - molecule test -s docker-11.1
   tags:
-    - molecule2.16
+    - docker
 
 # Tests for Docker driver for ATG 11.2
 Docker atg-platform 11.2:
@@ -74,4 +74,4 @@ Docker atg-platform 11.2:
   script:
     - molecule test -s docker-11.2
   tags:
-    - molecule2.16
+    - docker
