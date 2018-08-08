@@ -1,0 +1,6 @@
+---
+- src: "lean_delivery.java"
+  version: v1.2
+
+- src: "lean_delivery.jboss"
+  version: v1.1

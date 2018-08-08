@@ -1,0 +1,86 @@
+---
+- name: "Fetch ATG artifact with {{ transport }} transport"
+  include_tasks: "{{ transport_driver }}"
+  with_first_found:
+    - "fetch/{{ transport }}.yml"
+    - "fetch/unknown-transport.yml"
+  loop_control:
+    loop_var: transport_driver
+
+- name: "Become section"
+  block:
+    - name: "Install unzip"
+      package:
+        name: "unzip"
+        state: "present"
+
+    - name: "Extract ATG installer"
+      unarchive:
+        src: "{{ atg_artifact }}"
+        dest: "{{ download_path }}"
+        list_files: True
+      register: atg_installer
+
+    - name: "Create atg group"
+      become: True
+      group:
+        name: "{{ atg_group }}"
+        state: "present"
+
+    - name: "Create atg user"
+      user:
+        name: "{{ atg_user }}"
+        group: "{{ atg_group }}"
+        state: "present"
+        home: "/home/{{ atg_user }}"
+        createhome: True
+        append: True
+
+    - name: "Ensure {{ atg_installer.files[0] }} is executable"
+      file:
+      args:
+        path: "{{ download_path }}/{{ atg_installer.files[0] }}"
+        owner: "{{ atg_user }}"
+        group: "{{ atg_group }}"
+        mode: "0755"
+
+    - name: "Create ATG root folder with atg user as owner"
+      file:
+        owner: "{{ atg_user }}"
+        group: "{{ atg_group }}"
+        path: "{{ dynamo_root }}"
+        state: "directory"
+
+  become: True
+
+- name: "Read java profile"
+  include_tasks: "profile/java.yml"
+
+- name: "Read jboss profile"
+  include_tasks: "profile/jboss.yml"
+  when: app_server == "jboss"
+
+- name: "Set atg_installer_bin"
+  set_fact:
+    atg_installer_bin: "{{ download_path }}/{{ atg_installer.files[0] }}"
+
+- name: "Create silent install file for ATG{{ atg_version }}"
+  template:
+    src: "installer.properties.j2"
+    dest: "{{ download_path }}/atg_installer_{{ atg_version }}.properties"
+  register: atg_silent_install
+
+- name: "Install ATG {{ atg_version }} Platform"
+  become_user: "{{ atg_user }}"
+  command: "{{ atg_installer_bin }} -i silent -f {{ atg_silent_install.dest }}"
+  args:
+    creates: "{{ config_properties_txt }}"
+  become: True
+
+- name: "Chmod on {{ dynamo_root }}"
+  file:
+    path: "{{ dynamo_root }}"
+    state: "directory"
+    mode: "0775"
+    recurse: True
+  become: True

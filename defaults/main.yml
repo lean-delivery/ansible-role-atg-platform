@@ -1,0 +1,27 @@
+---
+# version of ATG platform
+atg_version: "11.3"
+# path to install ATG
+dynamo_root: "/opt/atg/ATG{{ atg_version }}"
+
+# selected application server
+app_server: "jboss"
+
+# default ports for installer
+atg_listen_port: "8080"
+atg_rmi_port: "8860"
+
+# artifact source transport
+transport: "local"
+# available are:
+# - "web" Fetching artifact from custom web uri
+# - "local" Local artifact
+
+transport_web: "http://my-storage.example.com/V861209-01.zip"
+transport_local: "/tmp/V861209-01.zip"
+
+# path to download ATG
+download_path: "/tmp"
+
+atg_user: "atg"
+atg_group: "atg"

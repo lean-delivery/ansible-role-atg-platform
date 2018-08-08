@@ -1,0 +1,15 @@
+---
+- name: "Read content of {{ profile.java }}"
+  slurp:
+    src: "{{ profile.java }}"
+  register: java_sh
+
+- name: "Set java_profile"
+  set_fact:
+    java_profile: "{{ java_sh['content'] | b64decode }}"
+
+- name: "Get JAVA_HOME"
+  set_fact:
+    java_home: "{{ item.split('=').1 }}"
+  with_items: "{{ java_profile.splitlines() }}"
+  when: item.split('=').0 == "export JAVA_HOME"
