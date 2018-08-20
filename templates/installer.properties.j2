@@ -6,7 +6,7 @@ ATG_LISTEN_PORT={{ atg_listen_port }}
 ATG_RMI_PORT={{ atg_rmi_port }}
 ATG_JDK_HOME={{ java_home }}
 
-{% if atg_version >= 11 %}
+{% if atg_version.split('.')[0] | int >= 11 %}
 
 #Installed features
 #------------------
