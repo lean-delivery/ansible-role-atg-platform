@@ -1,4 +1,4 @@
-atg-platform
+atg_platform
 =========
 [![License](https://img.shields.io/badge/license-Apache-green.svg?style=flat)](https://raw.githubusercontent.com/lean-delivery/ansible-role-atg-platform/master/LICENSE)
 [![Build Status](https://travis-ci.org/lean-delivery/ansible-role-atg-platform.svg?branch=master)](https://travis-ci.org/lean-delivery/ansible-role-atg-platform)
@@ -36,7 +36,7 @@ Java and application server should be installed preliminarily:
 
 
 ```
-For test scenarios atg-platform/requirements.yml is used  
+For test scenarios atg_platform/requirements.yml is used  
 If another roles/versions are required, put requirements.yml to molecule/<scenario_name> and remove in molecule.yml lines  
   options:  
     role-file: requirements.yml
@@ -92,7 +92,7 @@ Example Playbook
     - role: lean_delivery.jboss
       transport: "local"
       transport_local: "/tmp/jboss-eap-6.1.0.zip"
-    - role: lean_delivery.atg-platform
+    - role: lean_delivery.atg_platform
       atg_version: "11.3"
       transport: "local"
       transport_local: "/tmp/V861209-01.zip"
