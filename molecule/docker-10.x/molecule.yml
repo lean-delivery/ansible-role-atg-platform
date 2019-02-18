@@ -28,8 +28,8 @@ provisioner:
   log: True
   lint:
     name: ansible-lint
-  # env:
-  #   ANSIBLE_REMOTE_TMP: '/tmp/.ansible-${USER}/tmp'
+  env:
+    ANSIBLE_REMOTE_TMP: '/tmp/.ansible-${USER}/tmp'
 scenario:
   name: docker-10.x
 verifier:
