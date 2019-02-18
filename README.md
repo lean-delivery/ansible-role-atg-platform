@@ -1,107 +1,53 @@
-atg_platform
+ansible-role-atg-platform role
 =========
-[![License](https://img.shields.io/badge/license-Apache-green.svg?style=flat)](https://raw.githubusercontent.com/lean-delivery/ansible-role-atg-platform/master/LICENSE)
-[![Build Status](https://travis-ci.org/lean-delivery/ansible-role-atg-platform.svg?branch=master)](https://travis-ci.org/lean-delivery/ansible-role-atg-platform)
-[![Build Status](https://gitlab.com/lean-delivery/ansible-role-atg-platform/badges/master/build.svg)](https://gitlab.com/lean-delivery/ansible-role-atg-platform)
+[![License](https://img.shields.io/badge/license-Apache-green.svg?style=flat)](https://raw.githubusercontent.com/lean-delivery/ansible-role-ansible-role-atg-platform/master/LICENSE)
+[![Build Status](https://travis-ci.org/lean-delivery/ansible-role-ansible-role-atg-platform.svg?branch=master)](https://travis-ci.org/lean-delivery/ansible-role-ansible-role-atg-platform)
+[![Build Status](https://gitlab.com/lean-delivery/ansible-role-ansible-role-atg-platform/badges/master/build.svg)](https://gitlab.com/lean-delivery/ansible-role-ansible-role-atg-platform)
+[![Galaxy](https://img.shields.io/badge/galaxy-lean__delivery.ansible-role-atg-platform-blue.svg)](https://galaxy.ansible.com/lean_delivery/ansible-role-atg-platform)
+![Ansible](https://img.shields.io/ansible/role/d/role_id.svg)
+![Ansible](https://img.shields.io/badge/dynamic/json.svg?label=min_ansible_version&url=https%3A%2F%2Fgalaxy.ansible.com%2Fapi%2Fv1%2Froles%2Frole_id%2F&query=$.min_ansible_version)
 
-## Summary
---------------
-
-This role installs the Oracle ATG Web Commerce platform (ATG platform) on Linux platforms, which is a highly customizable, configurable framework for building and supporting Web sites, particularly sites used for e-commerce.
-
+A brief description of the role goes here.
 
 Requirements
---------------
+------------
 
- - Minimal Version of the ansible for installation: 2.5
- - **Supported ATG versions**:
-   - 10.x
-   - 11.0
-   - 11.1
-   - 11.2
-   - 11.3
-   - _lower and higher versions should be retested_
- - **Supported application servers**
-   - JBoss
- - **Supported OS**:
-   - CentOS
-     - 6
-     - 7
-
-For more information regarding support matrix please visit <https://support.oracle.com>
-
-Java and application server should be installed preliminarily:
-  - lean_delivery.java
-  - lean_delivery.jboss
-
-
-```
-For test scenarios atg_platform/requirements.yml is used  
-If another roles/versions are required, put requirements.yml to molecule/<scenario_name> and remove in molecule.yml lines  
-  options:  
-    role-file: requirements.yml
-```
-
+Any pre-requisites that may not be covered by Ansible itself or the role should
+be mentioned here. For instance, if the role uses the EC2 module, it may be a
+good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
 
-  - `atg_user` - user for installing atg (best practice is to use the same user as for installed application server, e.g. jboss)
-  - `atg_group` - group for atg user
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
+be mentioned here as well.
 
-  - `transport` - artifact source transport  
-     Available:
-      - `web` - fetch artifact from custom web uri
-      - `local` - local artifact
+Dependencies
+------------
 
-  - `transport_web` - URI for http/https artifact  e.g. "http://my-storage.example.com/V78217-01.zip"
-  - `transport_local` - path for local artifact e.g. "/tmp/V78217-01.zip"
-
-  - `download_path` - local folder for downloading artifacts  
-    default: `/tmp/`
-
-  - `atg_version` - ATG Platform version
-
-  - `dynamo_root` - where ATG Platform should be installed  
-    default: `/opt/atg/ATG{{ atg_version }}`
-
-  - `app_server` - selected application server  
-    default: `jboss`
-
-  - `atg_listen_port` - listen port for silent install properties file  
-    default: `8080`
-
-  - `atg_rmi_port` - rmi port for silent install properties file  
-    default: `8860`
-
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables that
+are used from other roles.
 
 Example Playbook
 ----------------
 
-### Installing ATG from local:
-```yaml
-- name: "Install ATG 11.3 from local"
-  hosts: all
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
 
-  roles:
-    - role: lean_delivery.java
-      java_major_version: 7
-      java_minor_version: 80
-      transport: "local"
-      transport_local: "/tmp/jdk-7u80-linux-x64.tar.gz"
-    - role: lean_delivery.jboss
-      transport: "local"
-      transport_local: "/tmp/jboss-eap-6.1.0.zip"
-    - role: lean_delivery.atg_platform
-      atg_version: "11.3"
-      transport: "local"
-      transport_local: "/tmp/V861209-01.zip"
-```
+    - hosts: servers
+      roles:
+         - { role: ansible-role-atg-platform, x: 42 }
 
-## License
+License
+-------
+Apache
 
-Apache2
+Author Information
+------------------
 
-## Authors
-
-team@lean-delivery.com
+authors:
+  - Lean Delivery Team <team@lean-delivery.com>
