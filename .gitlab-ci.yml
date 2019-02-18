@@ -8,6 +8,7 @@ before_script:
   - ansible --version
   - ansible-lint --version
   - molecule --version
+  - ansible-config dump --only-changed
 
 variables:
   GET_SOURCES_ATTEMPTS: "5"
