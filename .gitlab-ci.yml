@@ -40,7 +40,7 @@ Ansible lint:
 #     AWS_REGION: us-east-1
 #   stage: deployment test
 #   script:
-#     - molecule test -s cloud-aws-direct
+#     - molecule test -s cloud-aws-direct-11.3
 #   tags:
 #     - aws
 

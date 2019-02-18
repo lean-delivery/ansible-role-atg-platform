@@ -1,5 +1,5 @@
 ---
-- name: Converge
+- name: Converge atg 10.1.1
   hosts: atg_platform_10_1_1
   roles:
     - role: lean_delivery.java
@@ -11,7 +11,7 @@
       transport: "web"
       transport_web: "{{ lookup('env','STORAGE_AWS') }}/oracle-commerce-suite/commerce/ATG10.1.1/ATG10.1.1.zip"
 
-- name: Converge
+- name: Converge atg 10.2
   hosts: atg_platform_10_2
   roles:
     - role: lean_delivery.java

@@ -11,15 +11,18 @@ lint:
     config-file: .yamllint
 platforms:
   - name: test-docker-centos6-ansible-role-atg-platform-10.1.1
-    image: centos:6
+    image: leandelivery/docker-systemd:centos7
     privileged: True
+    # command: bash -c 'while true; do sleep 1; done'
+    command: "/usr/sbin/init"
     groups:
       - rhel_family
       - atg_platform_10_1_1
 
   - name: test-docker-centos6-ansible-role-atg-platform-10.2
-    image: centos:6
+    image: leandelivery/docker-systemd:centos7
     privileged: True
+    command: "/usr/sbin/init"
     groups:
       - rhel_family
       - atg_platform_10_2
@@ -28,8 +31,6 @@ provisioner:
   log: True
   lint:
     name: ansible-lint
-  env:
-    ANSIBLE_REMOTE_TMP: '/tmp/.ansible-${USER}/tmp'
 scenario:
   name: docker-10.x
 verifier:

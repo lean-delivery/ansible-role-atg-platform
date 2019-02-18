@@ -43,6 +43,11 @@
         exact_count: 1
         count_tag:
           instance: '{{ item.name }}'
+        volumes:
+          # - device_name: /dev/sda1
+          #   # volume_type: gp2
+          #   # volume_size: '{{ item.volume_size | default(8, True) }}'
+          #   delete_on_termination: True
       register: server
       loop: '{{ molecule_yml.platforms }}'
       async: 7200
