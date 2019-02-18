@@ -13,7 +13,6 @@ platforms:
   - name: test-docker-centos6-ansible-role-atg-platform-10.1.1
     image: centos:6
     privileged: True
-    command: bash -c 'while true; do sleep 1; done'
     groups:
       - rhel_family
       - atg_platform_10_1_1
@@ -21,7 +20,6 @@ platforms:
   - name: test-docker-centos6-ansible-role-atg-platform-10.2
     image: centos:6
     privileged: True
-    command: "sleep infinity"
     groups:
       - rhel_family
       - atg_platform_10_2
