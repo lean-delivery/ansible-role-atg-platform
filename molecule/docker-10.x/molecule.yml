@@ -11,7 +11,7 @@ lint:
     config-file: .yamllint
 platforms:
   - name: test-docker-centos6-ansible-role-atg-platform-10.1.1
-    image: leandelivery/docker-systemd:centos7
+    image: centos:6
     privileged: True
     # command: bash -c 'while true; do sleep 1; done'
     command: "/usr/sbin/init"
@@ -20,7 +20,7 @@ platforms:
       - atg_platform_10_1_1
 
   - name: test-docker-centos6-ansible-role-atg-platform-10.2
-    image: leandelivery/docker-systemd:centos7
+    image: centos:6
     privileged: True
     command: "/usr/sbin/init"
     groups:
