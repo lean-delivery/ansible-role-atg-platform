@@ -2,76 +2,83 @@
 # Run all tests
 stages:
   - lint
-  - Deployment test
+  - deployment test
 
-# Check OS, ansible, molecule, docker version
 before_script:
   - ansible --version
+  - ansible-lint --version
   - molecule --version
-  - docker --version
 
 variables:
   GET_SOURCES_ATTEMPTS: "5"
-  ANSIBLE_INVENTORY: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/inventory/epc.py"
-  ANSIBLE_LIBRARY: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible"
-  ANSIBLE_INVENTORY_PLUGINS: "/home/gitlab-runner/.local/lib/python2.7/site-packages/epam_ansible/inventory/epc.py"
 
-# Tests for Docker driver for ATG 11.3
-Docker atg-platform 11.3:
-  stage: Deployment test
+Ansible lint:
+  stage: lint
+  before_script:
+    - git clone https://github.com/lean-delivery/ansible-lint-rules.git ~/ansible-lint-rules
   script:
-    - molecule test -s docker-11.3
+    - ansible-lint . -c .ansible-lint
+  after_script:
+    - rm -rf ~/ansible-lint-rules
   tags:
-    - docker
+    - aws
 
-# Tests for EPC driver for ATG 11.3
-EPC atg-platform 11.3:
-  variables:
-    EPC_REGION: EPAM-BY2
-  stage: Deployment test
-  script:
-    - molecule test -s cloud-epc
-  tags:
-    - delegated
+# # Tests for EPC driver for ATG 11.3
+# EPC atg-platform 11.3:
+#   variables:
+#     EPC_REGION: EPAM-BY2
+#   stage: Deployment test
+#   script:
+#     - molecule test -s cloud-epc-delegated
+#   tags:
+#     - delegated
 
 # Tests for AWS driver for ATG 11.3
 AWS atg-platform 11.3:
   variables:
-    EPC_REGION: AWS-EUCENTRAL
+    AWS_REGION: us-east-1
   stage: Deployment test
   script:
-    - molecule test -s cloud-aws
+    - molecule test -s cloud-aws-direct
   tags:
-    - delegated
+    - aws
 
-# Tests for Docker driver for ATG 10.1.1
-Docker atg-platform 10.1.1:
+# Tests for Docker driver for ATG 10.x
+Docker atg-platform 10.x:
+  variables:
+    AWS_REGION: us-east-1
   stage: Deployment test
   script:
-    - molecule test -s docker-10.1.1
+    - molecule test -s docker-10.x
   tags:
-    - docker
+    - aws
 
-# Tests for Docker driver for ATG 10.2
-Docker atg-platform 10.2:
-  stage: Deployment test
-  script:
-    - molecule test -s docker-10.2
-  tags:
-    - docker
+# # Tests for Docker driver for ATG 11.1
+# Docker atg-platform 11.1:
+#   variables:
+#     AWS_REGION: us-east-1
+#   stage: Deployment test
+#   script:
+#     - molecule test -s docker-11.1
+#   tags:
+#     - aws
 
-# Tests for Docker driver for ATG 11.1
-Docker atg-platform 11.1:
-  stage: Deployment test
-  script:
-    - molecule test -s docker-11.1
-  tags:
-    - docker
+# # Tests for Docker driver for ATG 11.2
+# Docker atg-platform 11.2:
+#   variables:
+#     AWS_REGION: us-east-1
+#   stage: Deployment test
+#   script:
+#     - molecule test -s docker-11.2
+#   tags:
+#     - aws
 
-# Tests for Docker driver for ATG 11.2
-Docker atg-platform 11.2:
-  stage: Deployment test
-  script:
-    - molecule test -s docker-11.2
-  tags:
-    - docker
+# # Tests for Docker driver for ATG 11.3
+# Docker atg-platform 11.3:
+#   variables:
+#     AWS_REGION: us-east-1
+#   stage: Deployment test
+#   script:
+#     - molecule test -s docker-11.3
+#   tags:
+#     - aws

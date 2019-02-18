@@ -6,8 +6,8 @@
 
 - name: "Read config file"
   include_tasks: "read-atg-conf-props.yml"
-  when: conf_props.stat.exists == True
+  when: conf_props.stat.exists
 
 - name: "Install ATG"
   include_tasks: "install-platform.yml"
-  when: conf_props.stat.exists == False or not atg_version == atg_installed_version
+  when: (not conf_props.stat.exists) or not atg_version == atg_installed_version

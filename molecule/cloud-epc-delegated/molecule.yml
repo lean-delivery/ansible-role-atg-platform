@@ -10,20 +10,13 @@ lint:
   options:
     config-file: .yamllint
 platforms:
-  - name: test-epc-centos7-ansible-role-atg-platform
-    image: CentOS7_64-bit
-    shape: small
+  - name: test-epc-centos6-atg-platform
+    image: CentOS6_64-bit
+    shape: medium
     region: EPAM-BY2
     wait_timeout: 3600
     groups:
       - rhel_family
-  - name: test-epc-ubuntu1804-ansible-role-atg-platform
-    image: Ubuntu18.04_64-bit
-    shape: small
-    region: EPAM-BY2
-    wait_timeout: 3600
-    groups:
-      - debian_family
 provisioner:
   name: ansible
   log: True
