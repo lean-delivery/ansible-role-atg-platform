@@ -27,7 +27,7 @@ Ansible lint:
 # EPC atg-platform 11.3:
 #   variables:
 #     EPC_REGION: EPAM-BY2
-#   stage: Deployment test
+#   stage: deployment test
 #   script:
 #     - molecule test -s cloud-epc-delegated
 #   tags:
@@ -37,7 +37,7 @@ Ansible lint:
 AWS atg-platform 11.3:
   variables:
     AWS_REGION: us-east-1
-  stage: Deployment test
+  stage: deployment test
   script:
     - molecule test -s cloud-aws-direct
   tags:
@@ -47,7 +47,7 @@ AWS atg-platform 11.3:
 Docker atg-platform 10.x:
   variables:
     AWS_REGION: us-east-1
-  stage: Deployment test
+  stage: deployment test
   script:
     - molecule test -s docker-10.x
   tags:
@@ -57,7 +57,7 @@ Docker atg-platform 10.x:
 # Docker atg-platform 11.1:
 #   variables:
 #     AWS_REGION: us-east-1
-#   stage: Deployment test
+#   stage: deployment test
 #   script:
 #     - molecule test -s docker-11.1
 #   tags:
@@ -67,7 +67,7 @@ Docker atg-platform 10.x:
 # Docker atg-platform 11.2:
 #   variables:
 #     AWS_REGION: us-east-1
-#   stage: Deployment test
+#   stage: deployment test
 #   script:
 #     - molecule test -s docker-11.2
 #   tags:
@@ -77,7 +77,7 @@ Docker atg-platform 10.x:
 # Docker atg-platform 11.3:
 #   variables:
 #     AWS_REGION: us-east-1
-#   stage: Deployment test
+#   stage: deployment test
 #   script:
 #     - molecule test -s docker-11.3
 #   tags:
