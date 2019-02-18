@@ -34,14 +34,14 @@ Ansible lint:
 #     - delegated
 
 # Tests for AWS driver for ATG 11.3
-AWS atg-platform 11.3:
-  variables:
-    AWS_REGION: us-east-1
-  stage: deployment test
-  script:
-    - molecule test -s cloud-aws-direct
-  tags:
-    - aws
+# AWS atg-platform 11.3:
+#   variables:
+#     AWS_REGION: us-east-1
+#   stage: deployment test
+#   script:
+#     - molecule test -s cloud-aws-direct
+#   tags:
+#     - aws
 
 # Tests for Docker driver for ATG 10.x
 Docker atg-platform 10.x:

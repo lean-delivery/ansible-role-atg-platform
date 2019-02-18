@@ -11,31 +11,15 @@ lint:
     config-file: .yamllint
 platforms:
   - name: test-docker-centos6-ansible-role-atg-platform-10.1.1
-    image: ami-1585c46a
-    instance_type: m4.large
-    region: us-east-1
-    vpc_subnet_id: subnet-05a2ef2b767afec50
-    assign_public_ip: False
-    spot_price: 0.04
-    security_group_name:
-      - default
-    wait_timeout: 1800
-    ssh_user: centos
+    image: centos:6
+    privileged: True
     groups:
       - rhel_family
       - atg_platform_10_1_1
 
   - name: test-docker-centos6-ansible-role-atg-platform-10.2
-    image: ami-1585c46a
-    instance_type: m4.large
-    region: us-east-1
-    vpc_subnet_id: subnet-05a2ef2b767afec50
-    assign_public_ip: False
-    spot_price: 0.04
-    security_group_name:
-      - default
-    wait_timeout: 1800
-    ssh_user: centos
+    image: centos:6
+    privileged: True
     groups:
       - rhel_family
       - atg_platform_10_2
