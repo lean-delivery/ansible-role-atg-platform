@@ -10,19 +10,26 @@ lint:
   options:
     config-file: .yamllint
 platforms:
-  - name: test-docker-centos6-atg-platform-11.1
+  - name: test-docker-centos6-atg-platform-10.1.1
     image: centos:6
     privileged: True
     groups:
       - rhel_family
-      - atg_platform_11_1
+      - atg_platform_10_1_1
+
+  - name: test-docker-centos6-atg-platform-10.2
+    image: centos:6
+    privileged: True
+    groups:
+      - rhel_family
+      - atg_platform_10_2
 provisioner:
   name: ansible
   log: True
   lint:
     name: ansible-lint
 scenario:
-  name: docker-11.1
+  name: docker-10.x
 verifier:
   name: testinfra
   options:

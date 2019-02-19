@@ -1,5 +1,4 @@
 exclude_paths:
- - ./.gitlab-ci.yml
  - ./.travis.yml
  - ./molecule/
 rulesdir:

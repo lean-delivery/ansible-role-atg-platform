@@ -1,12 +1,12 @@
 ---
 galaxy_info:
-  role_name: "atg_platform"
-  author: "Lean Delivery team <team@lean-delivery.com>"
-  description: "Lean Delivery ATG Platform install"
-  company: "Epam Systems"
-  license: "Apache"
-  min_ansible_version: "2.5"
-  issue_tracker_url: "https://github.com/lean-delivery/ansible-role-atg-platform/issues"
+  role_name: atg_platform
+  author: Lean Delivery Team <team@lean-delivery.com>
+  description: Lean Delivery ATG Platform install
+  company: EPAM Systems
+  issue_tracker_url: https://github.com/lean-delivery/ansible-role-atg-platform/issues
+  license: Apache
+  min_ansible_version: 2.5
   platforms:
     - name: "EL"
       versions:
@@ -20,5 +20,4 @@ galaxy_info:
     - "ocplatform"
     - "oracle"
     - "commerce"
-
 dependencies: []
