@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: False
-  no_log: True
+  no_log: "{{ not (lookup('env', 'MOLECULE_DEBUG') | bool or molecule_yml.provisioner.log|default(false) | bool) }}"
   vars:
     ssh_port: 22
   tasks:
@@ -33,6 +33,7 @@
       register: epc_jobs
       until: epc_jobs.finished
       retries: 300
+      delay: 20
       with_items: "{{ server.results }}"
 
     # Mandatory configuration for Molecule to function.

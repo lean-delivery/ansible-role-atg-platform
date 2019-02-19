@@ -1,39 +1,33 @@
-atg_platform
+atg-platform role
 =========
 [![License](https://img.shields.io/badge/license-Apache-green.svg?style=flat)](https://raw.githubusercontent.com/lean-delivery/ansible-role-atg-platform/master/LICENSE)
 [![Build Status](https://travis-ci.org/lean-delivery/ansible-role-atg-platform.svg?branch=master)](https://travis-ci.org/lean-delivery/ansible-role-atg-platform)
 [![Build Status](https://gitlab.com/lean-delivery/ansible-role-atg-platform/badges/master/build.svg)](https://gitlab.com/lean-delivery/ansible-role-atg-platform)
-
-## Summary
---------------
+[![Galaxy](https://img.shields.io/badge/galaxy-lean__delivery.atg__platform-blue.svg)](https://galaxy.ansible.com/lean_delivery/atg_platform)
+![Ansible](https://img.shields.io/ansible/role/d/28669.svg)
+![Ansible](https://img.shields.io/badge/dynamic/json.svg?label=min_ansible_version&url=https%3A%2F%2Fgalaxy.ansible.com%2Fapi%2Fv1%2Froles%2F28669%2F&query=$.min_ansible_version)
 
 This role installs the Oracle ATG Web Commerce platform (ATG platform) on Linux platforms, which is a highly customizable, configurable framework for building and supporting Web sites, particularly sites used for e-commerce.
 
-
 Requirements
---------------
+------------
 
- - Minimal Version of the ansible for installation: 2.5
- - **Supported ATG versions**:
-   - 10.x
-   - 11.0
-   - 11.1
-   - 11.2
-   - 11.3
-   - _lower and higher versions should be retested_
- - **Supported application servers**
-   - JBoss
- - **Supported OS**:
-   - CentOS
-     - 6
-     - 7
+- Minimal Version of the ansible for installation: 2.5
+- **Supported ATG versions**:
+  - 10.x
+  - 11.0
+  - 11.1
+  - 11.2
+  - 11.3
+  - _lower and higher versions should be retested_
+- **Supported application servers**
+  - JBoss
+- **Supported OS**:
+  - CentOS
+    - 6
+    - 7
 
 For more information regarding support matrix please visit <https://support.oracle.com>
-
-Java and application server should be installed preliminarily:
-  - lean_delivery.java
-  - lean_delivery.jboss
-
 
 ```
 For test scenarios atg_platform/requirements.yml is used  
@@ -41,7 +35,6 @@ If another roles/versions are required, put requirements.yml to molecule/<scenar
   options:  
     role-file: requirements.yml
 ```
-
 
 Role Variables
 --------------
@@ -74,6 +67,12 @@ Role Variables
   - `atg_rmi_port` - rmi port for silent install properties file  
     default: `8860`
 
+Dependencies
+------------
+
+Java and application server should be installed preliminarily:
+  - lean_delivery.java
+  - lean_delivery.jboss
 
 Example Playbook
 ----------------
@@ -98,10 +97,12 @@ Example Playbook
       transport_local: "/tmp/V861209-01.zip"
 ```
 
-## License
+License
+-------
+Apache
 
-Apache2
+Author Information
+------------------
 
-## Authors
-
-team@lean-delivery.com
+authors:
+  - Lean Delivery Team <team@lean-delivery.com>
