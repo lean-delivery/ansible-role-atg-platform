@@ -8,20 +8,25 @@ driver:
 lint:
   name: yamllint
   options:
-    config-file: molecule/yamllint.yml
+    config-file: .yamllint
 platforms:
-  - name: test-atg-platform-11.1
+  - name: test-docker-centos6-atg-platform-11.1
     image: centos:6
     privileged: True
     groups:
-      - atg-platform
+      - rhel_family
+      - atg_platform_11_1
 provisioner:
   name: ansible
+  log: True
   lint:
     name: ansible-lint
 scenario:
   name: docker-11.1
 verifier:
   name: testinfra
+  options:
+    verbose: true
+  directory: ../resources/tests/
   lint:
     name: flake8
